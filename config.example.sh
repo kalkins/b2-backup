@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Backblaze B2 configuration variables
+B2_ACCOUNT="AAA"
+B2_KEY="BBB"
+B2_BUCKET="CCC"
+B2_DIR="backups"
+
+# Local directory to backup
+LOCAL_DIR="/home/sindre"
+
+# GPG key (last 8 characters)
+ENC_KEY="EEEEEEEE"
+SGN_KEY="FFFFFFFF"
+export PASSPHRASE="GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+export SIGN_PASSPHRASE="HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"

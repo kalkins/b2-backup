@@ -11,6 +11,8 @@ duplicity \
 duplicity \
  --sign-key $SGN_KEY --encrypt-key $ENC_KEY \
  --exclude "**/.cache" \
+ --exclude "**/Android/Sdk" \
+ --exclude "**/Dropbox" \
  ${LOCAL_DIR} b2://${B2_ACCOUNT}:${B2_KEY}@${B2_BUCKET}/${B2_DIR}
 
 # Cleanup failures

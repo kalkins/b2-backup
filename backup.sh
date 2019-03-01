@@ -1,5 +1,7 @@
 #!/bin/sh
-source $PWD/config.sh
+DIR=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
+
+source $DIR/config.sh
 
 # Remove files older than 90 days
 duplicity \

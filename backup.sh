@@ -3,18 +3,22 @@ DIR=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
 
 source $DIR/config.sh
 
-# Remove files older than 90 days
+# Remove files older than 60 days
 duplicity \
  --sign-key $SGN_KEY --encrypt-key $ENC_KEY \
- remove-older-than 90D --force \
+ remove-older-than 2M --force \
  b2://${B2_ACCOUNT}:${B2_KEY}@${B2_BUCKET}/${B2_DIR}
 
-# Perform the backup, make a full backup if it's been over 30 days
+# Perform the backup, make a full backup if it's been over 60 days
 duplicity \
+ --progress \
+ --full-if-older-than 2M \
  --sign-key $SGN_KEY --encrypt-key $ENC_KEY \
  --exclude "**/.cache" \
  --exclude "**/Android/Sdk" \
  --exclude "**/Dropbox" \
+ --exclude "**/workspace/source" \
+ --exclude "**/.local/share/Steam/steamapps" \
  ${LOCAL_DIR} b2://${B2_ACCOUNT}:${B2_KEY}@${B2_BUCKET}/${B2_DIR}
 
 # Cleanup failures

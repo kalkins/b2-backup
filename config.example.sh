@@ -1,10 +1,20 @@
 #!/bin/sh
 
 # Backblaze B2 configuration variables
-B2_ACCOUNT="AAA"
-B2_KEY="BBB"
-B2_BUCKET="CCC"
-B2_DIR="backups"
+BACKUP_ACCOUNT="AAA"
+BACKUP_KEY="BBB"
+BACKUP_BUCKET="CCC"
+BACKUP_DIR="backups"
+
+BACKUP_URL="b2://${BACKUP_KEY}:${BACKUP_SECRET}@${BACKUP_BUCKET}/${BACKUP_DIR}"
+
+# S3 Configuration variables
+export AWS_ACCESS_KEY_ID="AAA"
+export AWS_SECRET_ACCESS_KEY="BBB"
+BACKUP_BUCKET="CCC"
+BACKUP_PROVIDER="DDD"
+
+BACKUP_URL="s3://${BACKUP_PROVIDER}/${BACKUP_BUCKET}/"
 
 # Local directory to backup
 LOCAL_DIR="/home/sindre"

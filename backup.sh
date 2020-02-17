@@ -17,6 +17,7 @@ duplicity \
  --exclude "**/.cache" \
  --exclude "**/Android/Sdk" \
  --exclude "**/Dropbox" \
+ --exclude "**/Nextcloud" \
  --exclude "**/workspace/source" \
  --exclude "**/.local/share/Steam/steamapps" \
  $LOCAL_DIR $BACKUP_URL
